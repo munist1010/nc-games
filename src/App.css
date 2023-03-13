@@ -1,38 +1,67 @@
-.App {
-  text-align: center;
+@import url("https://fonts.googleapis.com/css2?family=Roboto&display=swap");
+
+* {
+	margin: 0;
+	font-family: "Tilt Neon";
+	color: #78c2ff;
+	background-color: #ffffff;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.navbar {
+	padding: 20px;
+	display: flex;
+	align-items: center;
+	max-width: 800px;
+	margin: 0 auto;
+	border-bottom: 1px solid #fa19e4;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.navbar h1 {
+	color: #78c2ff;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+.navbar .links {
+	margin-left: auto;
 }
 
-.App-link {
-  color: #61dafb;
+.navbar a {
+	margin-left: 16px;
+	text-decoration: none;
+	padding: 6px;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.navbar a:hover {
+	color: #ff0000;
+}
+
+.content {
+	max-width: 600px;
+	margin: 40px auto;
+	padding: 20px;
+}
+
+.blog-preview {
+	padding: 10px 16px;
+	margin: 20px 0;
+	border-bottom: 1px solid #b4f7c1;
+	background-color: #3750de;
+}
+
+.blog-preview:hover {
+	box-shadow: 1px 3px 5px rgba(0, 0, 0, 0.4);
+}
+
+.blog-preview h2 {
+	font-size: 20px;
+	color: #fa19e4;
+	margin-bottom: 8px;
+	background-color: #3750de;
+}
+
+.blog-preview a {
+	text-decoration: none;
+}
+.blog-preview p {
+	background-color: #3750de;
+	color: #40a6ff;
 }
