@@ -1,25 +1,25 @@
 import axios from "axios";
 
 const gamesAPI = axios.create({
-	baseURL: "",
+	baseURL: "https://aarons-nc-games.onrender.com/api",
 });
 
 export const fetchReviews = () => {
-	return gamesAPI.get("/items").then((res) => {
+	return gamesAPI.get("reviews").then((res) => {
 		const { data } = res;
-		return data.items;
+		return data;
 	});
 };
 
 export const fetchReviewsByID = (params) => {
-	return gamesAPI.get(`/items?category_name=${params}`).then((res) => {
+	return gamesAPI.get(`/reviews?review_id=${params}`).then((res) => {
 		const { data } = res;
-		return data.items;
+		return data.reviews;
 	});
 };
 
-export const postReview = (newItem) => {
-	return gamesAPI.post(`/items/`, newItem).then((data) => {
-		return data.item;
+export const postReview = (newReview) => {
+	return gamesAPI.post(`/reviews/`, newReview).then((data) => {
+		return data.reviews;
 	});
 };

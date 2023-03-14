@@ -2,20 +2,31 @@
 
 * {
 	margin: 0;
-	font-family: "Tilt Neon";
+	font-family: "Roboto";
 	color: #78c2ff;
 	background-color: #ffffff;
 }
 
 .navbar {
 	padding: 20px;
-	display: flex;
+	display: grid;
 	align-items: center;
-	max-width: 800px;
+	text-align: center;
 	margin: 0 auto;
-	border-bottom: 1px solid #fa19e4;
+	border-bottom: 2px solid #fa19e4;
 }
 
+.navbar div {
+	display: flex;
+}
+
+.navbar div .link {
+	width: 100%;
+	margin-top: 40px;
+}
+.navbar .logo {
+	width: 70px;
+}
 .navbar h1 {
 	color: #78c2ff;
 }
@@ -34,34 +45,102 @@
 	color: #ff0000;
 }
 
-.content {
-	max-width: 600px;
-	margin: 40px auto;
-	padding: 20px;
+.home {
+	display: grid;
+	height: auto;
+	padding: 2px;
+	margin: 2px;
 }
-
-.blog-preview {
-	padding: 10px 16px;
-	margin: 20px 0;
-	border-bottom: 1px solid #b4f7c1;
+.home section {
+	max-width: 100%;
+	background-color: #3750de;
+	margin: 1px solid black;
+	height: 200px;
+	padding-left: 10px;
+	padding-right: 10px;
+	padding: 10px;
+	margin: 10px;
+}
+.home p {
 	background-color: #3750de;
 }
-
-.blog-preview:hover {
-	box-shadow: 1px 3px 5px rgba(0, 0, 0, 0.4);
+.home .reviews {
+	display: flex;
+	justify-content: space-between ;
+}
+.home .reviews p {
+	width: 60%;
+}
+.home .review img {
+	width: 60%;
+	margin-right: 0;
+	padding-right: 0;
 }
 
-.blog-preview h2 {
-	font-size: 20px;
-	color: #fa19e4;
-	margin-bottom: 8px;
+
+
+@media screen and (max-width: 800px) {
+.navbar {
+	display: grid;
+	padding: 10px;
+	margin: 10px;
+	text-align: center;
+}
+
+.navbar h1 {
+	padding: 10px;
+	text-align: center;
+
+}
+.navbar div {
+	display: flex;
+	padding-left: 10px;
+	
+}
+.navbar .link {
+	padding-bottom: 10px;
+	margin: 10px;
+	border: 1px solid black;
+	border-radius: 20%;
+	width: 100%;
+}
+.navbar .logo {
+	width: 50px;
+}
+.home {
+	display: grid;
+	height: auto;
+	padding: 2px;
+	margin: 2px;
+}
+.home section {
+	max-width: 100%;
+	background-color: #3750de;
+	margin: 1px solid black;
+	height: 200px;
+	padding-left: 10px;
+	padding-right: 10px;
+	padding: 10px;
+	margin: 10px;
+}
+.home p {
 	background-color: #3750de;
 }
-
-.blog-preview a {
-	text-decoration: none;
+.home .reviews {
+	display: flex;
 }
-.blog-preview p {
-	background-color: #3750de;
-	color: #40a6ff;
+.home .reviews p {
+	width: 60%;
+}
+.home .review img {
+	width: 40%;
+}
+
+.logo {
+	max-width: 50px;
+	display: grid;
+	margin: 0px;
+	padding: 0px;
+}
+
 }
