@@ -104,6 +104,11 @@
 	background-color: #7180d5;
 }
 
+.comment-section {
+	background-color: #0c8af1;
+	border: 1px solid black;
+}
+
 
 
 @media screen and (max-width: 800px) {
