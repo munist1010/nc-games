@@ -1,5 +1,6 @@
-import { fetchReviews } from "./api";
+import { fetchReviews } from "../utils/api";
 import { useState, useEffect } from "react"
+import ReviewCard from "./ReviewCard";
 export default function Reviews() {
 	const [reviews, setReviews] = useState([])
 	const [isLoading, setIsLoading] = useState(false)
@@ -15,7 +16,7 @@ export default function Reviews() {
 		<div className="review-list">
 			{reviews && reviews.map((review) => {
 				return (
-					<p key={review.review_id}>{review.title}</p>
+					<ReviewCard review={review}/>
 				)
 			})}
 		</div>
