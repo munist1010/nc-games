@@ -11,12 +11,12 @@ export const fetchReviews = () => {
 	});
 };
 
-// export const fetchReviewsByID = (params) => {
-// 	return gamesAPI.get(`/reviews?review_id=${params}`).then((res) => {
-// 		const { data } = res;
-// 		return data.reviews;
-// 	});
-// };
+export const fetchReviewsByID = (params) => {
+	return gamesAPI.get(`/reviews/${params}`).then((res) => {
+		const { data } = res;
+		return data;
+	});
+};
 
 // export const postReview = (newReview) => {
 // 	return gamesAPI.post(`/reviews/`, newReview).then((data) => {

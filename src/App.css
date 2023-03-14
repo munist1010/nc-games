@@ -77,6 +77,33 @@
 	padding-right: 0;
 }
 
+.review-list {
+	padding: 5px;
+	display:grid;
+	height: auto;
+	grid-template-columns: 1fr 1fr;
+}
+.review-card {
+	display: flex;
+	height: 100px;
+	width: 400px;
+	background-color: #3750de;
+	margin-bottom: 5px
+}
+
+.review-card p {
+	background-color: #3750de;
+	width: 200px;
+	
+}
+
+.review-card img {
+	width: 200px;
+}
+.review-card:hover {
+	background-color: #7180d5;
+}
+
 
 
 @media screen and (max-width: 800px) {
