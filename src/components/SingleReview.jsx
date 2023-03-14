@@ -25,7 +25,7 @@ export default function SingleReview() {
             category: {singleReview.category}
             </h3>
             <img alt="game" src={singleReview.review_img_url}></img>
-            <p>Review created at{singleReview.created_at} with {singleReview.votes} votes and {singleReview.comment_count} comments</p>
+            <p>Review created at {singleReview.created_at} with {singleReview.votes} votes and {singleReview.comment_count} comments</p>
             <section>
                 <em>
                 the comments will go down here!!!
