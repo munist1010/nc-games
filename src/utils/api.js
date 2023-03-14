@@ -18,6 +18,12 @@ export const fetchReviewsByID = (params) => {
 	});
 };
 
+export const fetchCommentsByID = (params) => {
+	return gamesAPI.get(`/reviews/${params}/comments`).then((res) => {
+		const { data } = res;
+		return data;
+	})
+}
 // export const postReview = (newReview) => {
 // 	return gamesAPI.post(`/reviews/`, newReview).then((data) => {
 // 		return data.reviews;

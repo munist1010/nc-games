@@ -1,10 +1,12 @@
-import { fetchReviewsByID } from "../utils/api"
+import { fetchReviewsByID, fetchCommentsByID } from "../utils/api"
 import { useEffect, useState} from "react"
 import { useParams } from "react-router-dom"
+import CommentCard from "./CommentCard";
 
 export default function SingleReview() {
     let {review_id} = useParams();
     const [singleReview, setSingleReview] = useState([])
+    const [comments, setComments] = useState([])
 	const [isLoading, setIsLoading] = useState(false)
 	useEffect(() => {
 		setIsLoading(true)
@@ -12,6 +14,10 @@ export default function SingleReview() {
 			setSingleReview(data)
 			setIsLoading(false)
 		})
+        fetchCommentsByID(review_id).then((data) => {
+            setComments(data)
+            setIsLoading(false)
+        })
 	}, [review_id])
     console.log(singleReview)
     if (isLoading) return <h1>Loading...</h1>
@@ -28,9 +34,7 @@ export default function SingleReview() {
             <p> {singleReview.review_body}</p>
             <p>Review created at {singleReview.created_at} with {singleReview.votes} votes and {singleReview.comment_count} comments</p>
             <section>
-                <em>
-                the comments will go down here!!!
-                </em>
+                <CommentCard comments={comments}/>
             </section>
         </div>
     )
