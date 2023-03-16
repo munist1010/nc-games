@@ -24,6 +24,17 @@ export const fetchCommentsByID = (params) => {
 		return data;
 	})
 }
+
+export const voteForReview = (params, votes) => {
+	return gamesAPI
+	.patch(`/reviews/${params}`, {
+		inc_votes: votes
+	})
+	.then(({data}) => {
+		return data
+	})
+}
+
 // export const postReview = (newReview) => {
 // 	return gamesAPI.post(`/reviews/`, newReview).then((data) => {
 // 		return data.reviews;
