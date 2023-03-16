@@ -1,15 +1,16 @@
 import { useEffect, useState } from "react"
 import { fetchCommentsByID } from "../utils/api"
 import {postComment} from "../utils/api"
-const defaultComment = {
-    username: "",
-    body: "",
-}
 
 
 
 
 export default function CommentCard(review_id) {
+    const user = "cooljmessy"
+    const defaultComment = {
+        username: "cooljmessy",
+        body: "",
+    }
     const [isLoading, setIsLoading] = useState(false)
     const [comments, setComments] = useState([])
     const [postedComment, setPostedComment] = useState(defaultComment)
@@ -24,6 +25,7 @@ export default function CommentCard(review_id) {
             const msg = err.response.data.msg
             setErr(msg)
             setIsLoading(false)
+            setSuccess(false)
         })
     }, [review_id, success])
 
@@ -48,7 +50,6 @@ export default function CommentCard(review_id) {
         })
     };
     if (isLoading) return <div>Loading...</div>
-    if (err) return <div>No comments found!!</div>
     return (
         <>
         <div className="comment-div" key={comments.comment_id}>{comments.map((comment) => {
@@ -68,10 +69,10 @@ export default function CommentCard(review_id) {
         {!success && (<form onSubmit={handleSubmit} className="comment-form">
             <p> Add a comment below!</p>
             <label>
-                username
+                Commenting as: {user}
             </label>
-            <input type="text" className="form-item" id="username" placeholder="username" name="username" onChange={handleChange}>
-            </input>
+            {/* <input type="text" className="form-item" id="username" placeholder="username" name="username" onChange={handleChange}>
+            </input> */}
             <label>
                 Comment body
             </label>
