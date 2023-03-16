@@ -4,8 +4,13 @@ const gamesAPI = axios.create({
 	baseURL: "https://aarons-nc-games.onrender.com/api",
 });
 
-export const fetchReviews = () => {
-	return gamesAPI.get("reviews").then((res) => {
+export const fetchReviews = (category_name, sortBy, order) => {
+	return gamesAPI.get("/reviews", {
+		params:{
+			category: category_name && `'${category_name}'`,
+			sort_by: sortBy,
+			order: order
+	}}).then((res) => {
 		const { data } = res;
 		return data;
 	});
@@ -39,6 +44,14 @@ export const postComment = (params, comment_data) => {
 	console.log(comment_data)
 	return gamesAPI
 	.post(`/reviews/${params}/comments`, comment_data)
+}
+
+export const fetchCategories = () => {
+	return gamesAPI
+	.get('/categories').then((res) => {
+		const {data} = res;
+		return data
+	})
 }
 
 // export const postReview = (newReview) => {

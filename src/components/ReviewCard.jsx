@@ -7,6 +7,7 @@ export default function ReviewCard(props) {
         <section key={props.review.review_id} className="review-card">
             <img alt="" src={props.review.review_img_url}></img>
 			<p>{props.review.title}</p>
+            <p>{props.review.category}</p>
 		</section>
         </Link>
     )

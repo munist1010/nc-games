@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
-
 export default function Navbar() {
+
 	return (
 		<nav className="navbar">
 			<h1 className="header">nc_games reviews</h1>
@@ -9,6 +9,7 @@ export default function Navbar() {
 				</img>
 				<Link to="/" className="link">Home</Link>
 				<Link to="/reviews" className="link">Reviews</Link>
+				<Link to="/categories" className="link">Categories</Link>
 			</div>
 		</nav>
 	);
