@@ -27,15 +27,6 @@ export default function SingleReview() {
             setIsVotingErr(true);
         })
     }
-
-    const handleDownvoteButtonClick = () => {
-        setIsVotingErr(false);
-        setReviewVotes(1);
-        voteForReview(singleReview.review_id, -1).catch(() => {
-            setReviewVotes(0)
-            setIsVotingErr(true);
-        })
-    }
     
     if (isLoading) return <h1>Loading...</h1>
     return (
@@ -51,7 +42,6 @@ export default function SingleReview() {
             <p> {singleReview.review_body}</p>
             <p>Review created at {singleReview.created_at} with {singleReview.votes + reviewVotes} votes and {singleReview.comment_count} comments</p>
             <button onClick={handleUpvoteButtonClick} disabled={reviewVotes !== 0}>upvote</button>
-            <button onClick={handleDownvoteButtonClick} disabled={reviewVotes !== 0}>downvote</button>
             {isVotingErr && <p>Vote failed!</p>}
             <section>
                 <CommentCard review_id={review_id}/>
