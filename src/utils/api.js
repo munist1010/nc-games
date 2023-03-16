@@ -41,6 +41,14 @@ export const postComment = (params, comment_data) => {
 	.post(`/reviews/${params}/comments`, comment_data)
 }
 
+export const fetchCategories = () => {
+	return gamesAPI
+	.get('/categories').then((res) => {
+		const {data} = res;
+		return data
+	})
+}
+
 // export const postReview = (newReview) => {
 // 	return gamesAPI.post(`/reviews/`, newReview).then((data) => {
 // 		return data.reviews;
