@@ -23,7 +23,6 @@ export default function CommentCard(review_id) {
         fetchCommentsByID(review_id.review_id).then((data) => {
             setComments(data)
             setIsLoading(false)
-            setDeletedComment(false)
         }).catch((err) => {
             const msg = err.response.data.msg
             setErr(msg)
@@ -53,6 +52,7 @@ export default function CommentCard(review_id) {
         })
     };
     if (isLoading) return <div>Loading...</div>
+    if (deletedComment) return <div> Comment deleted!</div>
     return (
         <>
         <div className="comment-div" key={comments.comment_id}>{comments.map((comment) => {
@@ -62,17 +62,24 @@ export default function CommentCard(review_id) {
                     {user === comment.author && <button onClick={() => {
                         deleteComment(comment.comment_id)
                         setDeletedComment(true)
+                        setSuccess(false)
                     }}>Delete comment</button>}
                     <div>{comment.body}</div>
                     <div>{comment.created_at}</div>
                 </section>
             )
         })} </div>
-        {success && (
             <div>
-                comment added successfully!
+                {success &&  (
+                <div>
+                    comment added successfully!
+                </div>)}
+                {deletedComment && (
+                <div>
+                    comment delete successfully!
+                </div>)}
             </div>
-        )}
+                
         {!success && (<form onSubmit={handleSubmit} className="comment-form">
             <p> Add a comment below!</p>
             <label>

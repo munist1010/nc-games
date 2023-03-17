@@ -2,20 +2,29 @@ import { fetchReviews } from "../utils/api";
 import { useState, useEffect } from "react"
 import ReviewCard from "./ReviewCard";
 import { useParams } from "react-router-dom"
+import { Link } from "react-router-dom"
 export default function Reviews() {
 	let {category_name}= useParams()
 	const [reviews, setReviews] = useState([])
 	const [isLoading, setIsLoading] = useState(false)
 	const [sortBy, setSortBy] = useState("title")
 	const [order, setOrder] = useState("asc")
+	const [isErr, setIsErr] = useState(false)
 	useEffect(() => {
 		setIsLoading(true)
 		fetchReviews(category_name, sortBy, order).then((data) => {
 			setReviews(data)
 			setIsLoading(false)
+			if (data.length === 0) {
+				setIsErr(true)
+			}
+		}).catch((err) => {
+			setIsLoading(false)	
+			setIsErr(true);
 		})
 	}, [category_name, sortBy, order])
 	if (isLoading) return <h1>Loading...</h1>
+	if (isErr) return <p> Page not found! Click <Link to="/"><p>here</p></Link> to return home</p>
 	return (
 		<div className="review-list">
 		<select value={sortBy} onChange={(e) => setSortBy(e.target.value)}>
