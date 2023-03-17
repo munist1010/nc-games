@@ -15,6 +15,9 @@ export default function Reviews() {
 		fetchReviews(category_name, sortBy, order).then((data) => {
 			setReviews(data)
 			setIsLoading(false)
+			if (data.length === 0) {
+				setIsErr(true)
+			}
 		}).catch((err) => {
 			setIsLoading(false)	
 			setIsErr(true);

@@ -3,12 +3,18 @@ import { useState, useEffect } from "react"
 import { Link } from "react-router-dom"
 export default function Categories() {
     const [categories, setCategories] = useState([])
+    const [isErr, setIsErr] = useState(false)
     useEffect(() => {
         fetchCategories().then((data) => {
             setCategories(data)
+            console.log(categories)
+        }).catch((err) => {
+            console.log(err)
+            setIsErr(true)
         })
-    }, [categories])
+    }, [categories, isErr])
 
+    if (isErr) return <div> Path not found! <Link to="/">Click here to go home</Link></div>
     return (
         <div>
             {categories && categories.map((category) => {

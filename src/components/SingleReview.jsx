@@ -34,7 +34,12 @@ export default function SingleReview() {
     }
     
     if (isLoading) return <h1>Loading...</h1>
-    if (isErr) return <p> Page not found! Click <Link to="/"><p>here</p></Link> to return home</p>
+    if (isErr) return (
+        <>
+    <p> Page not found!</p> 
+    <Link to="/">Click here to return home</Link>
+        </>
+    )
     return (
         <div className="review">
             <h1>
