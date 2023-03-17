@@ -59,9 +59,3 @@ export const deleteComment = (comment_id) => {
 		return res
 	})
 }
-
-// export const postReview = (newReview) => {
-// 	return gamesAPI.post(`/reviews/`, newReview).then((data) => {
-// 		return data.reviews;
-// 	});
-// };

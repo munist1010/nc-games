@@ -1,4 +1,4 @@
-Created with node v18
+Requires Node version 18.0
 Link to the deployed webapp: https://genuine-syrniki-73f8cf.netlify.app/
 Link to back-end repository: https://github.com/munist1010/be-nc-games
 This app is a project about creating a game review site with functionality including sorting reviews (title, author, date created etc), organising by categories, and having the ability to vote and comment on individual reviews
