@@ -18,7 +18,9 @@ function App() {
 				<Route path="/reviews/:review_id" element={<SingleReview />}></Route>
 				<Route path="/categories" element={<Categories />}></Route>
 				<Route path="/categories/:category_name" element={<Reviews />}></Route>
-				<Route path="/*" element={<ErrorPath />}></Route>			
+				<Route path="*" element={<ErrorPath />}></Route>	
+				<Route path="/categories/*" element={<ErrorPath />}></Route>	
+				<Route path="/reviews/*" element={<ErrorPath />}></Route>	
 			</Routes>
     </div>
 		</Router>

@@ -3,6 +3,7 @@ import { useEffect, useState} from "react"
 import { useParams } from "react-router-dom"
 import CommentCard from "./CommentCard";
 import { voteForReview } from "../utils/api";
+import { Link } from "react-router-dom"
 
 export default function SingleReview() {
     let {review_id} = useParams();
@@ -10,12 +11,16 @@ export default function SingleReview() {
 	const [isLoading, setIsLoading] = useState(false)
     const [reviewVotes, setReviewVotes] = useState(0)
     const [isVotingErr, setIsVotingErr] = useState(false)
+    const [isErr, setIsErr] = useState(false)
     useEffect(() => {
 		setIsLoading(true)
 		fetchReviewsByID(review_id).then((data) => {
 			setSingleReview(data)
 			setIsLoading(false)
-		})
+		}).catch((err) => {
+            setIsLoading(false)
+            setIsErr(true)
+        })
 	}, [review_id])
     
     // may need to take out vote component into seperate file
@@ -29,6 +34,7 @@ export default function SingleReview() {
     }
     
     if (isLoading) return <h1>Loading...</h1>
+    if (isErr) return <p> Page not found! Click <Link to="/"><p>here</p></Link> to return home</p>
     return (
         <div className="review">
             <h1>
