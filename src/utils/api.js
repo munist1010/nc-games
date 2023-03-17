@@ -54,6 +54,12 @@ export const fetchCategories = () => {
 	})
 }
 
+export const deleteComment = (comment_id) => {
+	return gamesAPI.delete(`/comments/${comment_id}`).then((res) => {
+		return res
+	})
+}
+
 // export const postReview = (newReview) => {
 // 	return gamesAPI.post(`/reviews/`, newReview).then((data) => {
 // 		return data.reviews;
