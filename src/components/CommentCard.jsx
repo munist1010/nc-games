@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react"
 import { fetchCommentsByID } from "../utils/api"
-import {postComment} from "../utils/api"
+import { postComment } from "../utils/api"
+import { deleteComment } from "../utils/api"
 
 
 
@@ -16,18 +17,20 @@ export default function CommentCard(review_id) {
     const [postedComment, setPostedComment] = useState(defaultComment)
     const [success, setSuccess] = useState(false);
     const [err, setErr] = useState(null)
+    const [deletedComment, setDeletedComment] = useState(false);
     useEffect(() => {
         setIsLoading(true)
         fetchCommentsByID(review_id.review_id).then((data) => {
             setComments(data)
             setIsLoading(false)
+            setDeletedComment(false)
         }).catch((err) => {
             const msg = err.response.data.msg
             setErr(msg)
             setIsLoading(false)
             setSuccess(false)
         })
-    }, [review_id, success])
+    }, [review_id, success, deletedComment])
 
     const handleChange = (event) => {
         setPostedComment({...postedComment, [event.target.name]: event.target.value})
@@ -56,6 +59,10 @@ export default function CommentCard(review_id) {
             return (
                 <section className="comment-section" key={comments.comment_id}>
                     <div className="single-comment">{comment.author}</div>
+                    {user === comment.author && <button onClick={() => {
+                        deleteComment(comment.comment_id)
+                        setDeletedComment(true)
+                    }}>Delete comment</button>}
                     <div>{comment.body}</div>
                     <div>{comment.created_at}</div>
                 </section>
