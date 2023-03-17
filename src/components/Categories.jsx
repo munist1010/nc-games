@@ -7,7 +7,6 @@ export default function Categories() {
     useEffect(() => {
         fetchCategories().then((data) => {
             setCategories(data)
-            console.log(categories)
         }).catch((err) => {
             console.log(err)
             setIsErr(true)
@@ -16,7 +15,7 @@ export default function Categories() {
 
     if (isErr) return <div> Path not found! <Link to="/">Click here to go home</Link></div>
     return (
-        <div>
+        <div key={categories.category_id}>
             {categories && categories.map((category) => {
                 return (
                     <Link to={`/categories/${category.slug}`} key={category.description}>

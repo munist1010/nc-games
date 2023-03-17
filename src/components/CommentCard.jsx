@@ -16,7 +16,6 @@ export default function CommentCard(review_id) {
     const [comments, setComments] = useState([])
     const [postedComment, setPostedComment] = useState(defaultComment)
     const [success, setSuccess] = useState(false);
-    const [err, setErr] = useState(null)
     const [deletedComment, setDeletedComment] = useState(false);
     useEffect(() => {
         setIsLoading(true)
@@ -24,8 +23,6 @@ export default function CommentCard(review_id) {
             setComments(data)
             setIsLoading(false)
         }).catch((err) => {
-            const msg = err.response.data.msg
-            setErr(msg)
             setIsLoading(false)
             setSuccess(false)
         })
@@ -36,19 +33,14 @@ export default function CommentCard(review_id) {
     }
     const handleSubmit = (event) => {
         event.preventDefault();
-        console.log(postedComment)
         return postComment(review_id.review_id, postedComment)
         .then(() => {
-            console.log(postedComment)
             return setPostedComment(
                 {
                     ...defaultComment,
                 },
                 setSuccess(true),
             )
-        })
-        .catch((err) => {
-            console.log(err)
         })
     };
     if (isLoading) return <div>Loading...</div>
@@ -85,8 +77,6 @@ export default function CommentCard(review_id) {
             <label>
                 Commenting as: {user}
             </label>
-            {/* <input type="text" className="form-item" id="username" placeholder="username" name="username" onChange={handleChange}>
-            </input> */}
             <label>
                 Comment body
             </label>
