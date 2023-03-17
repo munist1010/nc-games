@@ -26,8 +26,10 @@ export default function Reviews() {
 	if (isLoading) return <h1>Loading...</h1>
 	if (isErr) return <p> Page not found! Click <Link to="/"><p>here</p></Link> to return home</p>
 	return (
-		<div className="review-list">
-		<select value={sortBy} onChange={(e) => setSortBy(e.target.value)}>
+		<>
+
+		<div className="asc-desc">
+		<select value={sortBy} onChange={(e) => setSortBy(e.target.value)} className="select-list">
 			<option value="owner">Owner</option>
 			<option value="title">Title</option>
 			<option value="created_at">Creation Date</option>
@@ -35,13 +37,17 @@ export default function Reviews() {
 			<option value="votes">Votes</option>
 			<option value="comment_count">Comment count</option>
 		</select>
-		<button onClick={() => {setOrder("asc")}}>Ascending</button>
-		<button onClick={() => {setOrder("desc")}}>Descending</button>
+			<button onClick={() => {setOrder("asc")}}>Ascending</button>
+			<button onClick={() => {setOrder("desc")}}>Descending</button>
+		</div>
+		<div className="review-list">
+		<br></br>
 			{reviews && reviews.map((review) => {
 				return (
 					<ReviewCard review={review} key={review.review_id}/>
 				)
 			})}
 		</div>
+		</>
 	);
 }

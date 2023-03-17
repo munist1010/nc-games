@@ -3,36 +3,42 @@
 * {
 	margin: 0;
 	font-family: "Roboto";
-	color: #78c2ff;
-	background-color: #ffffff;
+	color: #66290f;
+	background-color: #FF7775;
 }
 
 .navbar {
+	background-color: #FF7775;
 	padding: 20px;
 	display: grid;
 	align-items: center;
 	text-align: center;
 	margin: 0 auto;
-	border-bottom: 2px solid #fa19e4;
+	border-bottom: 3px solid #7069FF;
 }
 
 .navbar div {
 	display: flex;
+	background-color: #FF7775;
 }
 
 .navbar div .link {
 	width: 100%;
 	margin-top: 40px;
+	background-color: #FF7775;
 }
 .navbar .logo {
 	width: 70px;
+	background-color: #41B3A3;
 }
 .navbar h1 {
-	color: #78c2ff;
+	color: #7069FF;
+	background-color: #FF7775;
 }
 
 .navbar .links {
 	margin-left: auto;
+	background-color: #FF7775;
 }
 
 .navbar a {
@@ -42,7 +48,7 @@
 }
 
 .navbar a:hover {
-	color: #ff0000;
+	color: #FF7775;
 }
 
 .home {
@@ -53,7 +59,7 @@
 }
 .home section {
 	max-width: 100%;
-	background-color: #3750de;
+	background-color: #FF7775;
 	margin: 1px solid black;
 	height: 200px;
 	padding-left: 10px;
@@ -62,7 +68,7 @@
 	margin: 10px;
 }
 .home p {
-	background-color: #3750de;
+	background-color: #FF7775;
 }
 .home .reviews {
 	display: flex;
@@ -72,36 +78,53 @@
 	width: 60%;
 }
 .home .review img {
+	background-color: #7069FF;
 	width: 60%;
 	margin-right: 0;
 	padding-right: 0;
 }
 
 .review-list {
-	padding: 5px;
-	display:grid;
+	background-color: #7069FF;
+	padding: 10px;
+	display: grid;
 	height: auto;
 	grid-template-columns: 1fr 1fr;
+}
+
+.review-list a {
+	background-color: #7069FF;
+	margin-left: auto;
+	margin-right: auto;
 }
 .review-card {
 	display: flex;
 	height: 100px;
 	width: 400px;
-	background-color: #3750de;
-	margin-bottom: 5px
+	background-color: #7069FF;
+	margin-bottom: 5px;
+	justify-content: center;
 }
 
 .review-card p {
-	background-color: #3750de;
+	background-color: #FF7775;
 	width: 200px;
-	
+	box-shadow: 1px 1px black;
 }
 
 .review-card img {
 	width: 200px;
+	background-color: #7069FF
 }
-.review-card:hover {
-	background-color: #7180d5;
+.review-card p:hover {
+	background-color: #FF7775;
+}
+.review-card a {
+	background-color: #7069FF
+}
+
+.card {
+	background-color: #7069FF
 }
 
 .comment-section {
@@ -109,9 +132,19 @@
 	border: 1px solid black;
 }
 
+.asc-desc {
+	background-color: #7069FF;
+	display: flex;
+	height:fit-content;
+	align-items: center;
+	padding-left: 40%;
+	padding-bottom: 10px;
+}
+
 
 
 @media screen and (max-width: 800px) {
+
 .navbar {
 	display: grid;
 	padding: 10px;
@@ -129,13 +162,17 @@
 	padding-left: 10px;
 	
 }
-.navbar .link {
+.navbar a.link {
 	padding-bottom: 10px;
 	margin: 10px;
+	padding: 10px;
+	border: 0px;
 	border: 1px solid black;
 	border-radius: 20%;
 	width: 100%;
+	background-color: #7069FF
 }
+
 .navbar .logo {
 	width: 50px;
 }
@@ -174,5 +211,69 @@
 	margin: 0px;
 	padding: 0px;
 }
+.review-list {
+	grid-template-columns: 1fr;
+}
+
+.review-list img {
+	width: 130px;
+}
+
+.review-list button {
+	width: 100px;
+	justify-self: center;
+}
+
+.review-card {
+	margin-left: auto;
+	margin-right: auto;
+	width: 70vw;
+	justify-self: end;
+}
+.review {
+	justify-items: center;
+}
+.review img {
+	width: 95vw;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+.review h3 {
+	text-align: center;
+	margin-bottom: 20px;
+	font-size: 15px;
+}
+
+.review p {
+	width: 80%;
+	margin-left: auto;
+	margin-right: auto;
+	padding: 10px
+}
+
+.review button {
+	display: flex;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+.review section {
+	background-color: #FFE082
+}
+
+.comment-section {
+	background-color: #FFE082;
+}
+.single-comment {
+	background-color: #FFE082;
+}
+.asc-desc {
+	background-color: #7069FF;
+	display: flex;
+	padding-left: 30vw;
+	padding-bottom: 30px;
+}
 
 }
+
